@@ -1,0 +1,44 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MauiColorPicker.MainPage"
+             BackgroundColor="{Binding SelectedColor}">
+
+    <VerticalStackLayout Padding="20" Spacing="20">
+
+        <!-- Suwak RED -->
+        <Label Text="Czerwony (R)" FontSize="18"/>
+        <Slider x:Name="SliderRed" Minimum="0" Maximum="255" ValueChanged="OnColorChanged"/>
+
+        <!-- Suwak GREEN -->
+        <Label Text="Zielony (G)" FontSize="18"/>
+        <Slider x:Name="SliderGreen" Minimum="0" Maximum="255" ValueChanged="OnColorChanged"/>
+
+        <!-- Suwak BLUE -->
+        <Label Text="Niebieski (B)" FontSize="18"/>
+        <Slider x:Name="SliderBlue" Minimum="0" Maximum="255" ValueChanged="OnColorChanged"/>
+
+        <!-- Wyświetlanie wartości HEX -->
+        <Label x:Name="HexLabel" 
+               FontSize="24" 
+               TextColor="Black"
+               HorizontalOptions="Center" 
+               VerticalOptions="Center">
+            <Label.GestureRecognizers>
+                <TapGestureRecognizer Tapped="OnHexLabelTapped"/>
+            </Label.GestureRecognizers>
+        </Label>
+
+        <!-- Pole do wpisania HEX -->
+        <Entry x:Name="HexEntry" 
+               Placeholder="Wpisz HEX (np. #FF5733)" 
+               TextChanged="OnHexEntryChanged"/>
+
+        <!-- Przycisk do losowania koloru -->
+        <Button Text="Losowy Kolor" Clicked="OnRandomColorClicked"/>
+
+        <!-- Przycisk resetujący kolor -->
+        <Button Text="Resetuj" Clicked="OnResetColorClicked"/>
+
+    </VerticalStackLayout>
+</ContentPage>
